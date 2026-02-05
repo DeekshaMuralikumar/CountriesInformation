@@ -1,22 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
-    <title>Countries and its Flags</title>
+    <title>Country Information</title>
     <link rel="stylesheet" href="app.css">
 </head>
+
 <body>
 
-    <h1>Countries and its Flags</h1>
+    <h1>Country Information</h1>
+
+    <div class="search-container">
+        <input type="text" id="search-input" placeholder="Search for a country...">
+    </div>
 
     <div id="countries" class="countries-container"></div>
 
-    <div class="pagination">
-        <button id="prev">-</button>
-        <span id="page-number"></span>
-        <button id="next">+</button>
     </div>
+
+    <div class="pagination" id="pagination"></div>
+
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+
+            <img id="modal-flag" src="" alt="flag">
+
+            <h2 class="countryname_modal" id="modal-name"></h2>
+
+            <p class="modaldata" id="modal-capital"></p>
+            <p class="modaldata" id="modal-currency"></p>
+            <p class="modaldata" id="modal-borders"></p>
+            <p class="modaldata" id="modal-weather"></p>
+
+            <button class="close-button">Close</button>
+        </div>
+    </div>
+
 
     <script src="script.js"></script>
 </body>
+
 </html>
