@@ -180,38 +180,7 @@ modal.addEventListener("click", (e) => {
         modal.style.display = "none";
     }
 });
-const ACCU_API_KEY = "YOUR_API_KEY_HERE";
-
-async function showWeather(cityName) {
-    const weatherContainer = document.getElementById('weather-info');
-
-    try {
-        const locRes = await fetch(`https://dataservice.accuweather.com/locations/v1/cities/search?apikey=${ACCU_API_KEY}&q=${cityName}`);
-        const locData = await locRes.json();
-
-        if (locData && locData.length > 0) {
-            const locationKey = locData[0].Key;
-
-            const weatherRes = await fetch(`https://dataservice.accuweather.com/currentconditions/v1/${locationKey}?apikey=${ACCU_API_KEY}`);
-            const weatherData = await weatherRes.json();
-
-            const temp = weatherData[0].Temperature.Metric.Value;
-            const text = weatherData[0].WeatherText;
-            const iconCode = weatherData[0].WeatherIcon;
-
-            weatherContainer.innerHTML = `
-                    <div style="display: flex; align-items: center; gap: 10px; margin-top: 15px; border-top: 1px solid #eee; padding-top: 10px;">
-                        <img src="https://developer.accuweather.com/sites/default/files/${iconCode < 10 ? '0' + iconCode : iconCode}-s.png" alt="weather-icon">
-                        <span><strong>${cityName} Weather:</strong> ${temp}°C, ${text}</span>
-                    </div>
-                `;
-        } else {
-            weatherContainer.innerHTML = "<p>Weather data unavailable.</p>";
-        }
-    } catch (error) {
-        weatherContainer.innerHTML = "<p>Could not load weather.</p>";
-    }
-}
+const ACCU_API_KEY = "";
 
 async function openModal(country) {
     modalFlag.src = country.flags.png;
